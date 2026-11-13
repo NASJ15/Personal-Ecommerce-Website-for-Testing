@@ -92,6 +92,23 @@ curl -s localhost:8000/api/cart/$CART
 curl -s -X POST localhost:8000/api/cart/$CART/checkout
 ```
 
+## Testing
+
+A test suite lives in `tests/` — standard library only (`unittest`), no extra
+packages needed. It boots a fresh server instance per test class on a random
+port, so it's safe to run alongside a running shop.
+
+```bash
+python3 -m unittest -v                  # from the project root
+python3 -m unittest tests.test_cart -v  # a single module
+```
+
+Covered: health, catalog + category filter, cart lifecycle (add / qty /
+remove / delete), checkout + stock enforcement (incl. 409 paths), a
+concurrency test for parallel cart adds, the full price-change tracking API
+(set / history / feed / summary + validation), static file serving,
+path-traversal safety, CORS, and unknown-route handling.
+
 ## Notes
 - State (carts, price history, stock adjustments) is in-memory; the product catalog itself lives in `data/products.json`. Stock changes and price history reset when the server restarts.
 - The cart is identified by an opaque `cart_id`; the website stores it in `localStorage` so your cart survives reloads.

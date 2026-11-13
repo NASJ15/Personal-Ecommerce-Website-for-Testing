@@ -35,9 +35,9 @@ class TestStaticFiles(ServerTestCase):
         status_line, _body = self.raw_request("GET /..%2f..%2fapp.py HTTP/1.0")
         self.assertIn(" 404 ", status_line)
 
-    def test_traversal_to_etc_passwd(self):
+    def test_traversal_outside_static_dir(self):
         status_line, body = self.raw_request("GET /../data/products.json HTTP/1.0")
-        # ../data resolves outside STATIC_DIR -> 404 (not the JSON itself)
+        # resolves outside STATIC_DIR -> 404 (not the JSON itself)
         self.assertIn(" 404 ", status_line)
         self.assertNotIn(b"image_emoji", body)
 

@@ -53,8 +53,17 @@ class ServerTestCase(unittest.TestCase):
                         return
             except (OSError, urllib.error.URLError):
                 time.sleep(0.1)
-        cls.tearDownClass()
-        raise AssertionError("server did not become ready within 20s")
+        if cls.proc.poll() is None:
+            cls.proc.terminate()
+            try:
+                cls.proc.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                cls.proc.kill()
+                cls.proc.wait(timeout=5)
+        out = cls.proc.stdout.read().decode("utf-8", "replace") if cls.proc.stdout else ""
+        if cls.proc.stdout:
+            cls.proc.stdout.close()
+        raise AssertionError(f"server did not become ready within 20s\n{out}")
 
     @classmethod
     def tearDownClass(cls):
@@ -65,6 +74,11 @@ class ServerTestCase(unittest.TestCase):
             except subprocess.TimeoutExpired:
                 cls.proc.kill()
                 cls.proc.wait(timeout=5)
+        if cls.proc.stdout:
+            try:
+                cls.proc.stdout.close()
+            except ValueError:
+                pass
 
     # ------------------------------------------------------------- HTTP client
     def request(self, method, path, body=None):
@@ -86,7 +100,9 @@ class ServerTestCase(unittest.TestCase):
             with urllib.request.urlopen(req, timeout=10) as r:
                 return r.status, dict(r.headers), r.read()
         except urllib.error.HTTPError as e:
-            return e.code, dict(e.headers), e.read()
+            payload = e.read()
+            e.close()
+            return e.code, dict(e.headers), payload
 
     def api(self, method, path, body=None):
         """Like request(), but JSON-decodes the body. Returns (status, parsed)."""
