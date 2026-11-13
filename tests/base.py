@@ -1,4 +1,4 @@
-"""Shared test helpers.
+"""Shared test helpers. 
 
 Boots a *fresh* ShopLocal server (subprocess) for each concrete test class,
 so in-memory state (carts, stock, price history) never leaks between classes.
