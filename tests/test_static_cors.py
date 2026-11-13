@@ -1,4 +1,4 @@
-"""Static file serving, path-traversal safety, CORS, unknown routes."""
+"""Static file serving, path-traversal safety, CORS, unknown routes.""" 
 
 from .base import ServerTestCase
 
