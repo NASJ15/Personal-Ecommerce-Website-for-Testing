@@ -11,7 +11,7 @@ A self-contained e-commerce website with:
 ## Run
 
 ```bash
-cd ~/AI/AI-Projects/ecommerce
+cd ~/your-project-location/
 python3 app.py                # http://localhost:8000
 PORT=9000 python3 app.py      # custom port
 ```
