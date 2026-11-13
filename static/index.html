@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopLocal — Demo Store</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/">🛍️ ShopLocal</a>
+      <input id="search" type="search" placeholder="Search products…" autocomplete="off" />
+      <button id="cart-toggle" class="cart-btn" aria-label="Open cart">
+        🛒 <span id="cart-badge" class="badge hidden">0</span>
+      </button>
+      <button id="tracker-toggle" class="cart-btn" aria-label="Price change tracker">📈 <span>Tracker</span></button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Catalog -->
+    <section class="catalog-col">
+      <div class="toolbar">
+        <h1>Product Catalog</h1>
+        <div id="categories" class="chips"></div>
+      </div>
+      <div id="product-grid" class="grid">
+        <p class="loading">Loading products…</p>
+      </div>
+    </section>
+
+    <!-- Cart drawer -->
+    <aside id="cart-drawer" class="drawer hidden" aria-label="Shopping cart">
+      <div class="drawer-head">
+        <h2>Your Cart</h2>
+        <button class="icon-btn" id="cart-close" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+        <button id="checkout-btn" class="btn primary block">Checkout</button>
+        <button id="clear-cart-btn" class="btn block">Clear cart</button>
+      </div>
+      <div id="checkout-receipt" class="receipt hidden"></div>
+    </aside>
+
+    <!-- Price tracker panel -->
+    <aside id="tracker-panel" class="drawer hidden" aria-label="Price change tracker">
+      <div class="drawer-head">
+        <h2>📈 Price Change Tracker</h2>
+        <button class="icon-btn" id="tracker-close" aria-label="Close tracker">✕</button>
+      </div>
+      <p class="hint">
+        Recorded changes appear here. Set a price with the API:
+        <code>POST /api/products/&lt;id&gt;/price</code>
+      </p>
+      <div id="tracker-summary" class="tracker-summary"></div>
+      <h3>History</h3>
+      <div id="tracker-history" class="tracker-history"></div>
+    </aside>
+
+    <div id="overlay" class="overlay hidden"></div>
+  </main>
+
+  <footer class="site-footer">
+    ShopLocal demo store · catalog + cart + price-tracking API · <code>python3 app.py</code>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

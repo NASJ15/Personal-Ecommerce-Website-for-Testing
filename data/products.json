@@ -1,0 +1,104 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Aurora Wireless Headphones",
+      "description": "Over-ear noise-cancelling headphones with 40h battery life and Bluetooth 5.3.",
+      "category": "Audio",
+      "price": 129.99,
+      "currency": "USD",
+      "stock": 42,
+      "image_emoji": "🎧"
+    },
+    {
+      "id": 2,
+      "name": "Pulse Smartwatch S2",
+      "description": "AMOLED display, heart-rate + SpO2 tracking, 10-day battery, 5ATM water resistance.",
+      "category": "Wearables",
+      "price": 199.00,
+      "currency": "USD",
+      "stock": 18,
+      "image_emoji": "⌚"
+    },
+    {
+      "id": 3,
+      "name": "Nimbus Mechanical Keyboard",
+      "description": "75% hot-swappable keyboard with gasket mount and south-facing RGB.",
+      "category": "Peripherals",
+      "price": 89.50,
+      "currency": "USD",
+      "stock": 63,
+      "image_emoji": "⌨️"
+    },
+    {
+      "id": 4,
+      "name": "Glide Ergonomic Mouse",
+      "description": "Silent-click wireless mouse with 8 programmable buttons and USB-C charging.",
+      "category": "Peripherals",
+      "price": 49.99,
+      "currency": "USD",
+      "stock": 120,
+      "image_emoji": "🖱️"
+    },
+    {
+      "id": 5,
+      "name": "Voyager 27\" 1440p Monitor",
+      "description": "27-inch IPS panel, 144 Hz refresh, 1ms response, USB-C 90W delivery.",
+      "category": "Displays",
+      "price": 279.99,
+      "currency": "USD",
+      "stock": 25,
+      "image_emoji": "🖥️"
+    },
+    {
+      "id": 6,
+      "name": "Echo Portable Speaker",
+      "description": "360° sound, IP67 waterproof, 24h playtime, pairs in stereo with a second unit.",
+      "category": "Audio",
+      "price": 79.00,
+      "currency": "USD",
+      "stock": 88,
+      "image_emoji": "🔊"
+    },
+    {
+      "id": 7,
+      "name": "Volt 100W GaN Charger",
+      "description": "3-port GaN fast charger with 2× USB-C PD and 1× USB-A, foldable plug.",
+      "category": "Accessories",
+      "price": 59.99,
+      "currency": "USD",
+      "stock": 210,
+      "image_emoji": "🔌"
+    },
+    {
+      "id": 8,
+      "name": "Drift 1TB NVMe SSD",
+      "description": "PCIe 4.0 x4 M.2 SSD, up to 7,400 MB/s read, 1.8M DWP endurance.",
+      "category": "Storage",
+      "price": 119.00,
+      "currency": "USD",
+      "stock": 54,
+      "image_emoji": "💾"
+    },
+    {
+      "id": 9,
+      "name": "Halo Smart Bulb (4-pack)",
+      "description": "16M-color Wi-Fi bulbs, 800 lumens, works with voice assistants, no hub needed.",
+      "category": "Smart Home",
+      "price": 44.99,
+      "currency": "USD",
+      "stock": 150,
+      "image_emoji": "💡"
+    },
+    {
+      "id": 10,
+      "name": "Terra Desk Mat XXL",
+      "description": "90×40cm leatherette desk mat with stitched edges and non-slip rubber base.",
+      "category": "Accessories",
+      "price": 29.99,
+      "currency": "USD",
+      "stock": 200,
+      "image_emoji": "🟫"
+    }
+  ]
+}
