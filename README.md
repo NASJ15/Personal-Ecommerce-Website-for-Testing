@@ -1,4 +1,4 @@
-# 🛍️ ShopLocal — E-Commerce Demo
+# 🛍️ ShopLocal — E-Commerce Demo 
 
 A self-contained e-commerce website with:
 
